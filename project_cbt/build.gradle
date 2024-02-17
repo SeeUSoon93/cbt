@@ -16,22 +16,17 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// lombok
+	// 스프링 데이터 JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// 인메모리 데이터베이스 h2
+	runtimeOnly 'com.h2database:h2'
+	// 롬복
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	// web
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	// 타임리프
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	// validation
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-	// database
-	runtimeOnly 'com.h2database:h2'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	// hateoas
-	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 }
 
 tasks.named('test') {

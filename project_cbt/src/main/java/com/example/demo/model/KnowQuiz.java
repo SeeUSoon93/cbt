@@ -1,4 +1,4 @@
-package com.example.demo.model.entity;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Builder;
@@ -10,8 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "count_quizs")
-public class CountQuiz {
+@Table(name = "know_quizs")
+public class KnowQuiz {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userIdx")
@@ -21,16 +21,10 @@ public class CountQuiz {
     @JoinColumn(name = "quizIdx")
     private Quiz quiz;
 
-    private int wrongCount;
-    private int CorrectCount;
-
     @Builder
-    public CountQuiz(User user, Quiz quiz, int wrongCount, int correctCount){
+    public KnowQuiz(User user, Quiz quiz){
         this.user = user;
         this.quiz = quiz;
-        this.CorrectCount = correctCount;
-        this.wrongCount = wrongCount;
     }
+
 }
-
-
