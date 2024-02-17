@@ -1,6 +1,7 @@
 package com.example.demo.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,4 +34,16 @@ public class Quiz {
 
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
     private List<CountQuiz> countQuizs;
+
+    @Builder
+    public Quiz(Long quizIdx, int quizYear, int quizAnswer, int quizCnt, String quizComment, String quizContent, String quizExamples, String quizSubject) {
+        this.quizIdx = quizIdx;
+        this.quizYear = quizYear;
+        this.quizAnswer = quizAnswer;
+        this.quizCnt = quizCnt;
+        this.quizComment = quizComment;
+        this.quizContent = quizContent;
+        this.quizExamples = quizExamples;
+        this.quizSubject = quizSubject;
+    }
 }

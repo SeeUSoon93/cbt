@@ -1,6 +1,7 @@
 package com.example.demo.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,4 +22,11 @@ public class MemoQuiz {
     private Quiz quiz;
 
     private String quizMemo;
+
+    @Builder
+    public MemoQuiz(User user, Quiz quiz, String quizMemo){
+        this.user = user;
+        this.quiz = quiz;
+        this.quizMemo = quizMemo;
+    }
 }

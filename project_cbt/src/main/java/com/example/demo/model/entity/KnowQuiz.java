@@ -1,6 +1,7 @@
 package com.example.demo.model.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,5 +20,11 @@ public class KnowQuiz {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "quizIdx")
     private Quiz quiz;
+
+    @Builder
+    public KnowQuiz(User user, Quiz quiz){
+        this.user = user;
+        this.quiz = quiz;
+    }
 
 }
