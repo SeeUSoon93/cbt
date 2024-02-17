@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -20,6 +22,18 @@ public class User {
     private String userEmail;
 
     private String userPw;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<MemoQuiz> memoQuizs;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<KnowQuiz> knowQuizs;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<DontKnowQuiz> dontKnowQuizs;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<CountQuiz> countQuizs;
 
     @Builder
     public User(Long userIdx, String userEmail, String userPw) {
