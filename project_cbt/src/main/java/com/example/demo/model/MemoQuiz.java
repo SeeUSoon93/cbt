@@ -13,6 +13,10 @@ import lombok.Setter;
 @Table(name = "memo_quizs")
 public class MemoQuiz {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long memoQuizIdx;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userIdx")
     private User user;
