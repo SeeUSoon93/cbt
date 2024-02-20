@@ -18,9 +18,4 @@ public class UserAPIController {
         return "redirect:/main";
     }
 
-    @PostMapping("/login")
-    public String login(User user){
-        userService.save(user);
-        return "redirect:/main";
-    }
 }

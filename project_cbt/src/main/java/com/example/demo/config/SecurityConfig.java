@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .headers((headers) -> headers.addHeaderWriter(
                         new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
                 .formLogin((formLogin) -> formLogin.loginPage("/User/login")
-                        .defaultSuccessUrl("/main"))
+                        .defaultSuccessUrl("/mypage"))
                 .logout((logout) -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/User/logout"))
                         .logoutSuccessUrl("/main")
                         .invalidateHttpSession(true))

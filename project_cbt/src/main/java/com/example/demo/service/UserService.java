@@ -21,4 +21,9 @@ public class UserService {
                 .userPw(encoder.encode(user.getUserPw()))
                 .build()).getUserIdx();
     }
+
+    public User findByUserEmail(String email){
+        return userRepository.findByUserEmail(email)
+                .orElseThrow(()-> new IllegalArgumentException("Unexpected user"));
+    }
 }
