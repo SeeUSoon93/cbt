@@ -14,7 +14,8 @@ import lombok.Setter;
 public class KnowQuiz {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "know_quiz_idx", updatable = false)
     private Long knowQuizIdx;
 
     @ManyToOne(fetch = FetchType.LAZY)

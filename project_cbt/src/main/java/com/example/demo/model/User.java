@@ -17,10 +17,13 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_idx", updatable = false)
     private Long userIdx;
 
+    @Column(name = "user_email", unique = true)
     private String userEmail;
 
+    @Column(name = "user_pw")
     private String userPw;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
@@ -36,8 +39,7 @@ public class User {
     private List<CountQuiz> countQuizs;
 
     @Builder
-    public User(Long userIdx, String userEmail, String userPw) {
-        this.userIdx = userIdx;
+    public User(String userEmail, String userPw) {
         this.userEmail = userEmail;
         this.userPw = userPw;
     }

@@ -17,11 +17,28 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "quiz_idx", updatable = false)
     private Long quizIdx;
 
-    private int quizYear, quizCnt, quizAnswer;
+    @Column(name = "quiz_year")
+    private int quizYear;
+    @Column(name = "quiz_cnt")
+    private int quizCnt;
 
-    private  String quizSubject, quizContent, quizExamples, quizComment;
+    @Column(name = "quiz_subject")
+    private String quizSubject;
+
+    @Column(name = "quiz_content")
+    private String quizContent;
+
+    @Column(name = "quiz_examples")
+    private String quizExamples;
+
+    @Column(name = "quiz_answer")
+    private int quizAnswer;
+
+    @Column(name = "quiz_comment")
+    private String quizComment;
 
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
     private List<MemoQuiz> memoQuizs;
@@ -34,16 +51,4 @@ public class Quiz {
 
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
     private List<CountQuiz> countQuizs;
-
-    @Builder
-    public Quiz(Long quizIdx, int quizYear, int quizAnswer, int quizCnt, String quizComment, String quizContent, String quizExamples, String quizSubject) {
-        this.quizIdx = quizIdx;
-        this.quizYear = quizYear;
-        this.quizAnswer = quizAnswer;
-        this.quizCnt = quizCnt;
-        this.quizComment = quizComment;
-        this.quizContent = quizContent;
-        this.quizExamples = quizExamples;
-        this.quizSubject = quizSubject;
-    }
 }
